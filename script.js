@@ -1,13 +1,5 @@
-// Assignment Code
-//you should be able to click the button
-//prompt for password criteria
-//criteria should include the length and alphanumeric parameters
-//input should be validated
-//generate a password
-//display the password
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -16,33 +8,77 @@ function writePassword() {
 
 }
 
-function generatePassword(){
+function generatePassword() {
 
-  //ask password min
   var passwordMinLength = prompt("Minimum password length?");
   passwordMinLength = parseInt(passwordMinLength);
-  if (!Number.isFinite(passwordMinLength)){
+  if (!Number.isFinite(passwordMinLength) || passwordMinLength < 1) {
     return "invalid input";
   }
 
-  //ask password max
   var passwordMaxLength = prompt("Maximum password length?");
-  passwordMaxLength = parseInt(passwordMaxLength);
-  if (!Number.isFinite(passwordMaxLength)){
+  passwordMaxLength = parseInt(passwordMaxLength || passwordMaxLength >= passwordMinLength);
+  if (!Number.isFinite(passwordMaxLength)) {
     return "invalid input";
   }
-  //ask if lower case should be included
   var passwordLowerCase = prompt("Is lower case allowed? (Y/N)");
-  if (!(passwordLowerCase === "Y" || passwordLowerCase === "N")){
+  if (!(passwordLowerCase === "Y" || passwordLowerCase === "N")) {
     return "invalid input";
   }
-  //ask if upper case should be included
   var passwordUpperCase = prompt("Is upper case allowed? (Y/N)");
-  //ask if numbers should be included
+  if (!(passwordUpperCase === "Y" || passwordUpperCase === "N")) {
+    return "invalid input";
+  }
+
   var passwordNumbers = prompt("Are numbers allowed? (Y/N)")
-  //ask if special characters ashould be included
+  if (!(passwordNumbers === "Y" || passwordNumbers === "N")) {
+    return "invalid input";
+  }
   var passwordSpecial = prompt("Are special characters allowed? (Y/N)");
+  if (!(passwordSpecial === "Y" || passwordSpecial === "N")) {
+    return "invalid input";
+  }
+  if (passwordLowerCase + passwordUpperCase + passwordNumbers + passwordSpecial === "NNNN") {
+    return "invalid input";
+  }
+
+  var allCharacters = [];
+  if (passwordNumbers === "Y") {
+    for (var i = 0; i <= 9; i++) {
+      allCharacters.push(i);
+    }
+  }
+  if (passwordLowerCase === "Y") {
+    for (var i = 97; i <= 122; i++) {
+      var asciiChar = String.fromCharCode(i);
+      allCharacters.push(asciiChar);
+    }
+  }
+  if (passwordUpperCase === "Y") {
+    for (var i = 65; i <= 90; i++) {
+      var asciiChar = String.fromCharCode(i);
+      allCharacters.push(asciiChar);
+
+    }
+  }
+  if (passwordSpecial === "Y") {
+    for (var i = 32; i <= 47; i++) {
+      var asciiChar = String.fromCharCode(i);
+      allCharacters.push(asciiChar);
+
+    }
+
+  }
+
+  var passwordFinalLength = Math.floor(Math.random() * passwordMaxLength) + passwordMinLength;
+  var passwordFinal = "";
+  for (let i = 0; i < passwordFinalLength; i++) {
+    var singleCharacter = allCharacters[Math.floor(Math.random() * allCharacters.length)];
+    passwordFinal = singleCharacter + passwordFinal;
+  }
+  return passwordFinal;
+
 
 }
-// Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);

@@ -1,6 +1,6 @@
 # Password Generator
 
-## Description
+## Description7
 
 The password generator creates a password and allows you tp specify the length and inclusion of numbers, special characters and casing. 
 
@@ -9,3 +9,7 @@ The password generator creates a password and allows you tp specify the length a
 ## Link to deployed application
 
 [Password Generator](https://xavionstar.github.io/password-gen/)
+
+## Author
+
+Lincoln Winter Pough, coding cadet

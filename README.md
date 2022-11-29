@@ -8,4 +8,4 @@ The password generator creates a password and allows you tp specify the length a
 
 ## Link to deployed application
 
-[Password Generator](https://htmlpreview.github.io/?https://github.com/xavionstar/password-gen/blob/main/index.html)
+[Password Generator](https://xavionstar.github.io/password-gen/)

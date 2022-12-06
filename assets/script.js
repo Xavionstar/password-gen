@@ -21,20 +21,20 @@ function generatePassword() {
   if (!Number.isFinite(passwordMaxLength)) {
     return "invalid input";
   }
-  var passwordLowerCase = prompt("Is lower case allowed? (Y/N)");
+  var passwordLowerCase = prompt("Is lower case allowed? (Y/N)").toUpperCase();
   if (!(passwordLowerCase === "Y" || passwordLowerCase === "N")) {
     return "invalid input";
   }
-  var passwordUpperCase = prompt("Is upper case allowed? (Y/N)");
+  var passwordUpperCase = prompt("Is upper case allowed? (Y/N)").toUpperCase();
   if (!(passwordUpperCase === "Y" || passwordUpperCase === "N")) {
     return "invalid input";
   }
 
-  var passwordNumbers = prompt("Are numbers allowed? (Y/N)")
+  var passwordNumbers = prompt("Are numbers allowed? (Y/N)").toUpperCase();
   if (!(passwordNumbers === "Y" || passwordNumbers === "N")) {
     return "invalid input";
   }
-  var passwordSpecial = prompt("Are special characters allowed? (Y/N)");
+  var passwordSpecial = prompt("Are special characters allowed? (Y/N)").toUpperCase();
   if (!(passwordSpecial === "Y" || passwordSpecial === "N")) {
     return "invalid input";
   }
